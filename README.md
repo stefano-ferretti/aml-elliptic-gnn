@@ -27,16 +27,16 @@ You can cite this work through this paper:
 
 S. Marasi, S. Ferretti, "Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks: A Comparative Study'', in Proc. of the IEEE Consumer Communications & Networking Conference (CCNC 2024), IEEE ComSoc, January 2024, Las Vegas, USA.
 
-@inproceedings{DBLP:conf/ccnc/MarasiF24,
+@inproceedings{DBLP:conf/ccnc/MarasiF24,  
   author       = {Simone Marasi and
-                  Stefano Ferretti},
-  title        = {Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks:
-                  {A} Comparative Study},
+                  Stefano Ferretti},    
+  title        = {Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks:\\
+                  {A} Comparative Study},                    
   booktitle    = {21st {IEEE} Consumer Communications {\&} Networking Conference,
-                  {CCNC} 2024, Las Vegas, NV, USA, January 6-9, 2024},
-  pages        = {272--277},
-  publisher    = {{IEEE}},
-  year         = {2024},
-  url          = {https://doi.org/10.1109/CCNC51664.2024.10454631},
-  doi          = {10.1109/CCNC51664.2024.10454631}
+                  {CCNC} 2024, Las Vegas, NV, USA, January 6-9, 2024},  
+  pages        = {272--277},    
+  publisher    = {{IEEE}},    
+  year         = {2024},    
+  url          = {https://doi.org/10.1109/CCNC51664.2024.10454631},    
+  doi          = {10.1109/CCNC51664.2024.10454631}    
 }
