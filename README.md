@@ -1,14 +1,13 @@
 ## Anti-money Laundering on Elliptic Dataset with GNN
 
-The goal of this work is to tackle anti-money laundering problem trying to classifying efficiently illicit transactions and create a comparison between different architectures, in particular comparing different types of Graph Neural Networks (GNNs), to identify what are the key features and approaches that enable good performances in this given context.
+Experimenting Graph Neural Network with Elliptic dataset (Anti-Money Laundering)
+This is a revised version of a project from one of my students. The original project is [here](https://github.com/simonemarasi/aml-elliptic-gnn)
 
 ### Setup
 
 First of all you have to clone the repository with the standard command:
 
-`git clone https://github.com/simonemarasi/aml-elliptic-gnn`
-
-If you want only run the code note that it is also available a ready-to-run Google Colab version of the project at the following [link](https://colab.research.google.com/drive/145zhW2mehWVOJi3-wlEF4Y0evJOy_uDb?usp=sharing). The full code is inspectable cloning this repository.
+`git clone https://github.com/stefano-ferretti/aml-elliptic-gnn`
 
 #### Download the data
 
@@ -23,15 +22,21 @@ It is possible to install all the packages required for the execution launching 
 After that, to run the script execute the command
 `python main.py`
 
-### Results
+### Cite
+You can cite this work through this paper:
 
-| Model      | Precision          | Recall          |  F1            | F1 Micro AVG          |
-|------------|--------------------|-----------------|----------------|-----------------------|
-| GCN        | 0.832              | 0.457           | 0.59           | 0.94                  |
-| GAT        | 0.787              | 0.683           | 0.731          | 0.952                 |
-| SAGE       | 0.931              | 0.788           | 0.853          | 0.974                 |
-| Cheb       | **0.942**          | 0.795           | **0.862**      | **0.976**             |
-| GATv2      | 0.891              | **0.804**       | 0.845          | 0.972                 |
-| Custom GAT | 0.861              | 0.762           | 0.808          | 0.966                 | 
+S. Marasi, S. Ferretti, "Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks: A Comparative Study'', in Proc. of the IEEE Consumer Communications & Networking Conference (CCNC 2024), IEEE ComSoc, January 2024, Las Vegas, USA.
 
-You can find also the complete report of the project in this repository.
+@inproceedings{DBLP:conf/ccnc/MarasiF24,
+  author       = {Simone Marasi and
+                  Stefano Ferretti},
+  title        = {Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks:
+                  {A} Comparative Study},
+  booktitle    = {21st {IEEE} Consumer Communications {\&} Networking Conference,
+                  {CCNC} 2024, Las Vegas, NV, USA, January 6-9, 2024},
+  pages        = {272--277},
+  publisher    = {{IEEE}},
+  year         = {2024},
+  url          = {https://doi.org/10.1109/CCNC51664.2024.10454631},
+  doi          = {10.1109/CCNC51664.2024.10454631}
+}
