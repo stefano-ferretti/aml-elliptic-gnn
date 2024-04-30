@@ -69,13 +69,6 @@ models_to_train = {
     'Chebyshev+Lin (tx+agg)': models.ChebyshevConvolutionLin(args, [1, 2], data.num_features, args.hidden_units).to(args.device),
     'Chebyshev+Lin+Skip (tx)': models.ChebyshevConvolutionLinSkin(args, [1, 2], data_noAgg.num_features, args.hidden_units_noAgg).to(args.device),
     'Chebyshev+Lin+Skip (tx+agg)': models.ChebyshevConvolutionLinSkin(args, [1, 2], data.num_features, args.hidden_units).to(args.device),
-    # GIN
-    #'GIN (tx)': models.GINConvolution(args, data_noAgg.num_features, args.hidden_units_noAgg).to(args.device),
-    #'GIN (tx+agg)': models.GINConvolution(args, data.num_features, args.hidden_units).to(args.device),
-    #'GIN Lin (tx)': models.GINConvolutionLin(args, data_noAgg.num_features, args.hidden_units_noAgg).to(args.device),
-    #'GIN Lin (tx+agg)': models.GINConvolutionLin(args, data.num_features, args.hidden_units).to(args.device),
-    #'GIN Lin Skip (tx)': models.GINConvolutionLinSkip(args, data_noAgg.num_features, args.hidden_units_noAgg).to(args.device),
-    #'GIN Lin Skip (tx+agg)': models.GINConvolutionLinSkip(args, data.num_features, args.hidden_units).to(args.device),
     # GAT v2
     'GATv2 (tx)': models.GATv2Convolution(args, data_noAgg.num_features, args.hidden_units_noAgg).to(args.device),
     'GATv2 (tx+agg)': models.GATv2Convolution(args, data.num_features, args.hidden_units).to(args.device)
