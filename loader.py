@@ -3,9 +3,8 @@ import torch
 import os.path as osp
 from torch_geometric.data import Data
 from torch_geometric.transforms import RandomNodeSplit
-from torch_geometric import seed_everything
 
-def load_data(data_path):
+def load_data(data_path, noAgg=False):
 
     # Read edges, features and classes from csv files
     df_edges = pd.read_csv(osp.join(data_path, "elliptic_txs_edgelist.csv"))
@@ -14,14 +13,19 @@ def load_data(data_path):
 
     # Name colums basing on index
     colNames1 = {'0': 'txId', 1: "Time step"}
-    colNames2 = {str(ii+2): "Local_feature_" + str(ii+1) for ii in range(93)}
-    colNames3 = {str(ii+95): "Aggregate_feature_" + str(ii+1) for ii in range(72)}
+    colNames2 = {str(ii+2): "Local_feature_" + str(ii+1) for ii in range(94)}
+    colNames3 = {str(ii+96): "Aggregate_feature_" + str(ii+1) for ii in range(72)}
 
-    colNames = dict(colNames1, **colNames2, **colNames3 )
+    colNames = dict(colNames1, **colNames2, **colNames3)
     colNames = {int(jj): item_kk for jj, item_kk in colNames.items()}
 
     # Rename feature columns
     df_features = df_features.rename(columns=colNames)
+    if noAgg:
+        df_features = df_features.drop(df_features.iloc[:, 96:], axis = 1)
+
+    # Map unknown class to '3'
+    df_classes.loc[df_classes['class'] == 'unknown', 'class'] = '3'
 
     # Map unknown class to '3'
     df_classes.loc[df_classes['class'] == 'unknown', 'class'] = '3'
@@ -53,7 +57,6 @@ def load_data(data_path):
 
 def data_to_pyg(df_class_feature, df_edges):
 
-    seed_everything(42)
     # Define PyTorch Geometric data structure with Pandas dataframe values
     edge_index = torch.tensor([df_edges["txId1"].values,
                             df_edges["txId2"].values], dtype=torch.long)
