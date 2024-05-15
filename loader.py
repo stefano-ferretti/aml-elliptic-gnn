@@ -67,3 +67,32 @@ def data_to_pyg(df_class_feature, df_edges):
     data = RandomNodeSplit(num_val=0.15, num_test=0.2)(data)
 
     return data
+
+def reduce_features(df, corr_min=0.9):
+    print("df shape original:", df.shape)
+    corr = df[df.columns[97:]].corr()
+    df_feat = corr.unstack().reset_index()
+    #print("df:", df.head())
+    df_feat.columns = ["f1", "f2", "value"]
+    df_feat = df_feat[df_feat.f1 != df_feat.f2]
+    df_feat = df_feat[(df_feat.value > corr_min) | (df_feat.value < -corr_min)]
+    df_feat = df_feat.reset_index(drop=True)
+    #print("df_feat: ", df_feat.head())
+    to_remove = []
+    existent = []
+    for index, row in df_feat.iterrows():
+      new = (row.f1, row.f2)
+      new2 = (row.f2, row.f1)
+      if (not new in existent) and (not new2 in existent):
+        existent.append(new)
+      else:
+        to_remove.append(index)
+    #print("to_remove: ", to_remove)
+    df_feat = df_feat.drop(to_remove)
+    df_feat = df_feat.reset_index(drop=True)
+    #print(f"Pairs of aggregated features with corr > {corr_min}: {len(df_feat)}")
+    col_to_remove=df_feat["f2"]
+    for c in col_to_remove:
+        if c in df.columns:
+            df=df[df.columns[df.columns != c]]
+    return df
