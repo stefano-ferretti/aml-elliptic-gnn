@@ -194,7 +194,7 @@ class ChebyshevConvolutionLinSkin(Module):
         return x, edge_index
 
 #######################
-class GATv2Convolution(Module):
+class GATv3Convolution(Module):
     def __init__(self, args, num_features, hidden_units):
         super(GATv2Convolution, self).__init__()
         self.conv1 = GATv2Conv(num_features, hidden_units)
@@ -207,7 +207,55 @@ class GATv2Convolution(Module):
         x = F.relu(self.conv1(x, edge_index) + self.lin1(x))
         x = self.conv2(x, edge_index) + self.lin2(x)
         return F.log_softmax(x, dim=1), edge_index
-    
+
+#######################
+class GATv2Convolution(Module):
+    def __init__(self, args, num_features, hidden_units):
+        super().__init__()
+        self.conv1 = GATv2Conv(num_features, hidden_units)
+        self.conv2 = GATv2Conv(hidden_units, args['num_classes'])
+
+    def forward(self, data):
+        x, edge_index = data
+        x = F.relu(self.conv1(x, edge_index))
+        x = F.dropout(x, training=self.training)
+        x = self.conv2(x, edge_index)
+        return x, edge_index
+
+
+#######################
+class GATv2ConvolutionLin(Module):
+    def __init__(self, args, num_features, hidden_units):
+        super().__init__()
+        self.conv1 = GATv2Conv(num_features, hidden_units)
+        self.conv2 = GATv2Conv(hidden_units, hidden_units)
+        self.linear = Linear(hidden_units, args['num_classes'])
+
+    def forward(self, data):
+        x, edge_index = data
+        x = F.relu(self.conv1(x, edge_index))
+        x = F.dropout(x, training=self.training)
+        x = self.conv2(x, edge_index)
+        x = F.log_softmax(self.linear(x))
+        return x, edge_index
+
+#######################
+class GATv2ConvolutionLinSkip(Module):
+    def __init__(self, args, num_features, hidden_units):
+        super().__init__()
+        self.conv1 = GATv2Conv(num_features, hidden_units)
+        self.conv2 = GATv2Conv(hidden_units, hidden_units)
+        self.linear = Linear(hidden_units, args['num_classes'])
+
+    def forward(self, data):
+        x, edge_index = data
+        x = F.relu(self.conv1(x, edge_index))
+        x1 = F.dropout(x, training=self.training)
+        x1 = self.conv2(x1, edge_index)
+        x = x + x1
+        x = F.log_softmax(self.linear(x))
+        return x, edge_index
+
 #######################
 class GINConvolution(Module):
     def __init__(self, args, num_features, hidden_units):
