@@ -22,9 +22,16 @@ In the configuration file, it is possible also to modify some hyperparameters su
 ### Run
 
 It is possible to install all the packages required for the execution launching the command
+
 `pip install -r requirements.txt`
+
 After that, to run the script execute the command
+
 `python main.py`
+
+or, assuming for example you have the dataset stored in a directory 'data/'
+
+`python main.py -d data/`
 
 ### Publication
 
@@ -33,6 +40,7 @@ The original version of the project was presented at **2024 IEEE 21st Consumer C
 S. Marasi and S. Ferretti, "Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks: A Comparative Study," 2024 IEEE 21st Consumer Communications & Networking Conference (CCNC), Las Vegas, NV, USA, 2024, pp. 272-277, doi: 10.1109/CCNC51664.2024.10454631.
 
 Bibtex:
+
 @INPROCEEDINGS{10454631,  
   author={Marasi, Simone and Ferretti, Stefano},  
   booktitle={2024 IEEE 21st Consumer Communications & Networking Conference (CCNC)},  
