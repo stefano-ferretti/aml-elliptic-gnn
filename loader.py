@@ -27,9 +27,6 @@ def load_data(data_path, noAgg=False):
     # Map unknown class to '3'
     df_classes.loc[df_classes['class'] == 'unknown', 'class'] = '3'
 
-    # Map unknown class to '3'
-    df_classes.loc[df_classes['class'] == 'unknown', 'class'] = '3'
-
     # Merge classes and features in one Dataframe
     df_class_feature = pd.merge(df_classes, df_features)
 
