@@ -4,8 +4,7 @@ The goal of this work is to tackle anti-money laundering problem, trying to clas
 
 ### Credits
 
-This is a revised version of a project from one of my students. The original project can be found [here]
-(https://github.com/simonemarasi/aml-elliptic-gnn)
+This is a revised version of a project from one of my students. The original project can be found [here](https://github.com/simonemarasi/aml-elliptic-gnn)
 
 ### Setup
 
@@ -20,6 +19,14 @@ You can download the dataset zipped from the following [link](http://dl.dropboxu
 In the configuration file, it is possible also to modify some hyperparameters such as the number of epochs, the number of hidden units to use, the learning rate, etc.
 
 ### Run
+
+It is suggested to use a specific environment. To create it (e.g., name it `gnn-tests`)
+
+`python3 -m venv gnn-tests`
+
+and then activate it through
+
+`source gnn-tests/bin/activate`
 
 It is possible to install all the packages required for the execution launching the command
 

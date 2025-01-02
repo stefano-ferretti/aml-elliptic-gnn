@@ -15,7 +15,7 @@ def train(args, model, data):
         out, _ = model((data.x, data.edge_index))
         loss = F.cross_entropy(out[data.train_mask], data.y[data.train_mask])
         acc = accuracy(out[data.train_mask].argmax(dim=1), data.y[data.train_mask])
-        loss.backward()
+        loss.backward() 
         optimizer.step()
 
         # Validation
