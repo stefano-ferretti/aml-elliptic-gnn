@@ -185,14 +185,14 @@ print("="*50)
 if torch.backends.mps.is_available():
     args.device = 'mps'
     print("Using MPS (Metal Performance Shaders)")
-elif torch.cuda.is_available() and args.use_cuda:
+"""
+if torch.cuda.is_available() and args.use_cuda:
     args.device = 'cuda'
     print("Using CUDA")
 else:
     args.device = 'cpu'
     print("Using CPU")
-"""
-args.device = 'cpu'
+# args.device = 'cpu'
 
 print("Device being used:", args.device)
 
