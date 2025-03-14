@@ -35,6 +35,10 @@ or, assuming for example you have the dataset stored in a directory 'data/'
 
 ### Publication
 
+Please cite:
+
+S. Ferretti, G. D'Angelo, V. Ghini "Enhancing Anti-Money Laundering Frameworks: An Application of Graph Neural Networks in Cryptocurrency Transaction Classification", IEEE Access, IEEE Press, Mar 2025
+
 The original version of the project was presented at **2024 IEEE 21st Consumer Communications & Networking Conference (CCNC)** held in Las Vagas on January 2024. This is however a revised version, where more classifiers are considered.
 
 S. Marasi and S. Ferretti, "Anti-Money Laundering in Cryptocurrencies Through Graph Neural Networks: A Comparative Study," 2024 IEEE 21st Consumer Communications & Networking Conference (CCNC), Las Vegas, NV, USA, 2024, pp. 272-277, doi: 10.1109/CCNC51664.2024.10454631.
